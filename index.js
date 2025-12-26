@@ -1,193 +1,97 @@
-<<<<<<< HEAD
-console.log("guruh");
-=======
-// 2-masala
+//1-misol
+function positiveEvenSquareSum(arr) {
+  return arr
+    .map(n => (n > 0 ? n : 0))        
+    .filter(n => n % 2 === 0)         
+    .map(n => n ** 2)                 
+    .reduce((a, b) => a + b, 0);      
+}
+console.log(positiveEvenSquareSum([-3, 2, 4, -5, 6])); 
 
-// function checkTwoArr(arr1, arr2) {
-//     let found = false
-//     for (let i = 0; i < arr1.length; i++) {
-//         for (let j = 0; j < arr2.length; j++) {
-//             if (arr1[i] === arr2[j]) {
-//                 found = true
-//                 break
-//             }
-//         }
-//         if (found) break;
-//     }
-//     if (found) {
-//         return false
-//     }else{
-//         return true
-//     }
+//2-misol
+function checkTwoArr(arr1, arr2) {
+  const count = arr => {
+    const obj = {};
+    for (let n of arr) obj[n] = (obj[n] || 0) + 1;
+    return obj;
+  };
 
-// }
-// console.log(checkTwoArr([1, 2, 3, 4], [0, 6]));
+  const c1 = count(arr1);
+  const c2 = count(arr2);
 
+  for (let key in c1) {
+    if (c1[key] !== c2[key]) return false;
+  }
+  return true;
+}
 
-// 3-masala
+//3-misol
+function sortArray(arr1, arr2, str) {
+  const merged = [...arr1, ...arr2];
 
-// function sortArray(arr1, arr2, str) {
-//     for (let i = 0; i < arr2.length; i++) {
-//         arr1.push(arr2[i])
-//     }
-//     let newArr = [...arr1]
-//     let KichikKatta = arr1.sort((a, b) => a - b)
-//     let KattaKichik = newArr.sort((f, g) => g - f)
-//     return KichikKatta 
-// }
-// console.log(sortArray([1, 10], [2, 3, 4], "node.js"));
+  return [
+    merged.slice().sort((a, b) => a - b),
+    merged.slice().sort((a, b) => b - a),
+    merged.map(() => str)
+  ];
+}
 
-
-
-
-// 4-masala
-
-// function numberSplit(numb) {
-//     let result 
-//     let final = []
-//     if (numb % 2 == 0) {
-//         result = numb / 2
-//         final.push(result)
-//         final.push(result)
-//     }else{
-//         result = numb / 2
-//         final.push(Math.floor(result))
-//         final.push(Math.floor(result + 1))
-//     }
-
-//     return final
-
-// }
-// console.log(numberSplit(-1));
+console.log(sortArray([1, 10], [2, 3, 4], "nodejs"));
 
 
+//4-misol
+function numberSplit(n) {
+  const a = Math.floor(n / 2);
+  const b = Math.ceil(n / 2);
+  return [a, b];
+}
+
+//5-misol
+function sortByLength(arr) {
+  return arr.sort((a, b) => a.length - b.length);
+}
 
 
-// 5-masala
+//6-misol
+function evenSortDouble(arr) {
+  return arr
+    .filter(n => n % 2 === 0)
+    .sort((a, b) => a - b)
+    .map(n => n * 2);
+}
 
-// function sortByLength(arr) {
-//     arr.sort()
-//     return arr
-// }
-// console.log(sortByLength(["a" , "ccc", "dddd", "bb"]));
+
+//7-misol
+function reverseImage(matrix) {
+  return matrix
+    .slice()
+    .reverse()
+    .map(row => row.slice().reverse());
+}
 
 
 
+//8-misol
+function changeNumberToString(a, b) {
+  const words = ["one", "two", "three", "four", "five"];
+  const result = words.slice(a - 1, b);
+
+  return [
+    result,
+    result.slice().sort().reverse()
+  ];
+}
 
 
-// 6. Arraydagi juft sonlarni o'sish tartibida tartiblash va har bir elementni ikki barobar oshirish
+//9-misol
+function addToArray(n) {
+  const arr = Array.from({ length: n }, (_, i) => i + 1);
+  const chunked = [];
 
-// function juftConversion(arr) {
-//     let juftlar = []
-//     for (let i = 0; i < arr.length; i++) {
-//         if (arr[i] % 2 === 0) {
-//             juftlar.push(arr[i])
-//         }
-//     }
+  for (let i = 0; i < arr.length; i += 3) {
+    chunked.push(arr.slice(i, i + 3));
+  }
 
+  return [arr, chunked];
+}
 
-//     let n = juftlar.length
-//     for (let j = 0; j < n; j++) {
-//         for (let m = 0; m < n - 1; m++) {
-//             if (juftlar[m] > juftlar[m + 1]) {
-//                 let temp = juftlar[m]
-//                 juftlar[m] = juftlar[m + 1]
-//                 juftlar[m + 1] = temp
-//             }
-//         }
-//     }
-    
-//     let result = []
-//     for (let c = 0; c < juftlar.length; c++) {
-//         result.push(juftlar[c] * 2)
-        
-//     }
-//     return result
-
-// }
-// console.log(juftConversion([8, 2, 12, 10]));
-
-
-
-// 7-masala
-
-// function reverseImage(arr) {
-//     let sorting = []
-//     for (let i = arr.length - 1; i >= 0; i--) {
-//         sorting.push(arr[i])
-//     }
-    
-
-//     let result = []
-//     let finalResult = []
-//     for (let j = 0; j < sorting.length; j++) {
-//         let birlik = sorting[j]
-//         for (let m = birlik.length - 1; m >= 0; m--) {
-//             result.push(birlik[m])
-            
-//         }
-//         finalResult.push(result)
-//         result = []
-        
-//     }
-//     return finalResult
-    
-// }
-
- 
-// console.log(reverseImage([[1, 2, 3], [4, 5, 6], [7, 8, 9]]));
-
-
-// 8-masala
-
-// function changeNumberToString(start, end) {
-//     let result = []
-    
-    
-//     let numbersAsString = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"]
-    
-//     for (let i = start; i <= end; i++) {
-        
-//         result.push(numbersAsString[i - 1])
-//     }
-    
-//     return result
-// }
-
-// console.log(changeNumberToString(1, 5))
-
-// 9-masala
-
-// function addToArray(n) {
-//     let arr = []
-    
-//     for (let i = 1; i <= n; i++) {
-//         arr.push(i)
-//     }
-    
-   
-//     let chunked = []
-//     let temp = []
-    
-//     for (let i = 0; i < arr.length; i++) {
-//         temp.push(arr[i])
-       
-//         if (temp.length === 3) {
-//             chunked.push(temp)
-//             temp = []  
-//         }
-//     }
-    
-   
-//     if (temp.length > 0) {
-//         chunked.push(temp)
-//     }
-    
-//     return chunked
-// }
-
-// console.log(addToArray(10))
-
-
-
- 
