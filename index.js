@@ -1,5 +1,31 @@
-HEAD
-console.log("guruh");
+// HEAD
+// console.log("guruh");
+
+
+// 1-masala
+
+function filterArr(arr) {
+    let newArr = []
+    for (let i = 0; i < arr.length; i++) {
+        if (0 < arr[i]) {
+            newArr.push(arr[i])
+        }
+    }
+
+    let result = 0
+    for (let j = 0; j < newArr.length; j++) {
+        if (newArr[j] % 2 === 0) {
+            result += (newArr[j] * newArr[j])
+        }else{
+            result += newArr[j]
+        }
+    }
+
+    return result
+}
+console.log(filterArr([-2, 5, 10, 15, 21]));
+
+
 
 // 2-masala
 
