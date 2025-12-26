@@ -1,6 +1,6 @@
-<<<<<<< HEAD
+HEAD
 console.log("guruh");
-=======
+
 // 2-masala
 
 // function checkTwoArr(arr1, arr2) {
